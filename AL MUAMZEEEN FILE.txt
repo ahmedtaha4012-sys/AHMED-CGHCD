@@ -1,0 +1,1258 @@
+|   |<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Al Mumaizeen Saloon — Premium Men's Grooming · Jhelum</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,600&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Montserrat',sans-serif;background:#0c0c0c;color:#e8e0d0;overflow-x:hidden}
+
+/* ── SCISSORS CURSOR ── */
+body, * { cursor: none !important; }
+#cur { position:fixed; pointer-events:none; z-index:99999; top:0; left:0; transform:translate(-12px,-12px); will-change:transform; }
+#cur svg { width:40px; height:40px; filter:drop-shadow(0 0 4px rgba(201,168,76,0.6)); }
+#cur-dot { position:fixed; pointer-events:none; z-index:99998; top:0; left:0; width:5px; height:5px; background:var(--gold); border-radius:50%; transform:translate(-50%,-50%); transition:transform 0.08s; }
+#cur.snip svg { transform:scale(1.3); }
+#cur.hover svg { transform:scale(1.4) rotate(-25deg); filter:drop-shadow(0 0 8px rgba(201,168,76,0.9)); }
+#cur svg { transition:transform 0.12s ease, filter 0.2s ease; }
+/* Hide cursor on mobile */
+@media(max-width:768px){ body,* { cursor: auto !important; } #cur,#cur-dot { display:none; } }
+:root{
+  --black:#0c0c0c;
+  --dark:#111;
+  --card:#181818;
+  --gold:#c9a84c;
+  --gold-light:#e8c97a;
+  --gold-dim:rgba(201,168,76,0.12);
+  --white:#f5f0e8;
+  --muted:#777;
+  --border:rgba(201,168,76,0.18);
+}
+
+/* ── ANNOUNCEMENT ── */
+.topbar{background:var(--gold);padding:9px 0;text-align:center;font-size:10px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#000}
+
+/* ── HEADER ── */
+header{background:rgba(10,10,10,0.96);backdrop-filter:blur(24px);position:sticky;top:0;z-index:1000;border-bottom:1px solid var(--border)}
+.hdr{display:flex;align-items:center;justify-content:space-between;padding:0 56px;height:76px}
+.logo{text-decoration:none;text-align:center}
+.logo-name{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:700;color:var(--white);letter-spacing:5px;text-transform:uppercase;line-height:1}
+.logo-sub{font-size:8.5px;font-weight:600;letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin-top:3px}
+.nav{display:flex;gap:32px;list-style:none}
+.nav a{font-size:10.5px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color 0.2s}
+.nav a:hover{color:var(--gold)}
+.hdr-right{display:flex;align-items:center;gap:16px}
+.btn-hdr{background:var(--gold);color:#000;padding:11px 26px;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;text-decoration:none;transition:all 0.2s}
+.btn-hdr:hover{background:var(--gold-light)}
+.hbg{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer}
+.hbg span{width:22px;height:1.5px;background:var(--gold);display:block}
+
+/* ── MOBILE MENU ── */
+.mob{display:none;position:fixed;inset:0;background:rgba(8,8,8,0.98);z-index:9999;flex-direction:column;align-items:center;justify-content:center;gap:36px}
+.mob.on{display:flex}
+.mob a{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--white);text-decoration:none;transition:color 0.2s}
+.mob a:hover{color:var(--gold)}
+.mob-x{position:absolute;top:28px;right:32px;background:none;border:none;cursor:pointer;font-size:26px;color:var(--muted)}
+
+/* ── HERO ── */
+.hero{min-height:100vh;background:var(--black);display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:100px 56px 80px;position:relative;overflow:hidden;gap:60px}
+
+/* Background barbershop pole stripes */
+.hero-bg{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.hero-bg::before{content:'';position:absolute;top:-200px;right:-100px;width:600px;height:800px;background:conic-gradient(from 0deg at 50% 50%,transparent 0deg,rgba(201,168,76,0.03) 30deg,transparent 60deg,rgba(201,168,76,0.03) 90deg,transparent 120deg,rgba(201,168,76,0.03) 150deg,transparent 180deg,rgba(201,168,76,0.03) 210deg,transparent 240deg,rgba(201,168,76,0.03) 270deg,transparent 300deg,rgba(201,168,76,0.03) 330deg,transparent 360deg);animation:spinBg 60s linear infinite;border-radius:50%}
+.hero-bg::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(201,168,76,0.06) 0%,transparent 60%)}
+@keyframes spinBg{to{transform:rotate(360deg)}}
+
+/* Hero Left */
+.hero-left{position:relative;z-index:1}
+.hero-pre{font-size:9.5px;font-weight:700;letter-spacing:6px;text-transform:uppercase;color:var(--gold);margin-bottom:24px;display:flex;align-items:center;gap:14px}
+.hero-pre::before{content:'';width:32px;height:1px;background:var(--gold);opacity:0.5}
+.hero-h1{font-family:'Cormorant Garamond',serif;font-size:86px;font-weight:700;line-height:0.92;color:var(--white);letter-spacing:-2px;margin-bottom:10px;will-change:transform;}
+.hero-h1 em{font-style:italic;color:var(--gold);display:block}
+.hero-clinic{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;font-style:italic;color:rgba(255,255,255,0.3);letter-spacing:3px;margin-bottom:32px}
+.hero-desc{font-size:13px;font-weight:300;color:var(--muted);line-height:1.95;max-width:420px;margin-bottom:44px;letter-spacing:0.3px}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:56px}
+.btn-gold{background:var(--gold);color:#000;padding:15px 36px;font-size:10.5px;font-weight:700;letter-spacing:3px;text-transform:uppercase;text-decoration:none;display:inline-flex;align-items:center;gap:10px;transition:all 0.2s}
+.btn-gold:hover{background:var(--gold-light);transform:translateY(-2px)}
+.btn-ghost{background:transparent;color:var(--white);border:1px solid rgba(255,255,255,0.18);padding:15px 36px;font-size:10.5px;font-weight:500;letter-spacing:3px;text-transform:uppercase;text-decoration:none;display:inline-flex;align-items:center;gap:10px;transition:all 0.2s}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+.hero-stats{display:flex;gap:48px;padding-top:44px;border-top:1px solid var(--border)}
+.hs-num{font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:700;color:var(--gold);line-height:1;margin-bottom:5px}
+.hs-lbl{font-size:9px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--muted)}
+
+/* Hero Right — Animated Visual */
+.hero-right{position:relative;z-index:1;display:flex;align-items:center;justify-content:center;height:520px;will-change:transform;}
+
+.hero-circle{width:380px;height:380px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#1e1a10,#0a0a0a);border:1px solid var(--border);position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.hero-circle::before{content:'';position:absolute;inset:-2px;border-radius:50%;background:conic-gradient(from 0deg,transparent 0%,rgba(201,168,76,0.3) 20%,transparent 40%,rgba(201,168,76,0.15) 60%,transparent 80%,rgba(201,168,76,0.3) 100%);animation:rotateBorder 8s linear infinite;mask:radial-gradient(circle,transparent 93%,black 95%)}
+@keyframes rotateBorder{to{transform:rotate(360deg)}}
+
+/* SCISSORS SVG */
+.scissors-wrap{position:relative;width:220px;height:220px;display:flex;align-items:center;justify-content:center}
+
+.scissors-svg{width:200px;height:200px;filter:drop-shadow(0 0 20px rgba(201,168,76,0.3))}
+
+/* Blade 1 */
+.blade1{transform-origin:62px 62px;animation:snip1 2.5s ease-in-out infinite}
+/* Blade 2 */
+.blade2{transform-origin:62px 62px;animation:snip2 2.5s ease-in-out infinite}
+
+@keyframes snip1{
+  0%,100%{transform:rotate(0deg)}
+  25%{transform:rotate(-18deg)}
+  50%{transform:rotate(0deg)}
+  75%{transform:rotate(-8deg)}
+}
+@keyframes snip2{
+  0%,100%{transform:rotate(0deg)}
+  25%{transform:rotate(18deg)}
+  50%{transform:rotate(0deg)}
+  75%{transform:rotate(8deg)}
+}
+
+/* Floating sparks */
+.spark{position:absolute;width:4px;height:4px;border-radius:50%;background:var(--gold);animation:sparkFly 3s ease-in-out infinite}
+.spark:nth-child(1){top:30%;right:15%;animation-delay:0s;animation-duration:2.8s}
+.spark:nth-child(2){top:20%;right:30%;animation-delay:0.6s;animation-duration:3.2s}
+.spark:nth-child(3){top:65%;right:20%;animation-delay:1.2s;animation-duration:2.5s}
+.spark:nth-child(4){top:75%;left:20%;animation-delay:0.3s;animation-duration:3.5s}
+.spark:nth-child(5){top:15%;left:25%;animation-delay:1.8s;animation-duration:2.9s}
+@keyframes sparkFly{0%,100%{opacity:0;transform:scale(0.5)}50%{opacity:1;transform:scale(1.2)}}
+
+/* Floating service tags around circle */
+.hero-tag-float{position:absolute;background:var(--card);border:1px solid var(--border);padding:10px 16px;font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);white-space:nowrap}
+.tag-f1{top:10%;right:-20px;animation:floatTag 4s ease-in-out infinite}
+.tag-f2{bottom:20%;right:-30px;animation:floatTag 4s ease-in-out infinite;animation-delay:1s}
+.tag-f3{top:50%;left:-40px;animation:floatTag 4s ease-in-out infinite;animation-delay:2s}
+@keyframes floatTag{0%,100%{transform:translateY(0px)}50%{transform:translateY(-8px)}}
+
+/* Rating badge */
+.hero-rating{position:absolute;bottom:-20px;right:30px;background:var(--gold);padding:14px 20px;text-align:center}
+.hr-num{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:700;color:#000;line-height:1}
+.hr-stars{font-size:10px;color:#000;letter-spacing:2px;margin:2px 0}
+.hr-lbl{font-size:8px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(0,0,0,0.6)}
+
+/* ── MARQUEE ── */
+.marquee-bar{background:var(--gold);padding:13px 0;overflow:hidden;white-space:nowrap}
+.marquee-track{display:inline-flex;animation:scroll 20s linear infinite}
+@keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.m-item{font-size:10.5px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:#000;padding:0 28px}
+.m-sep{color:rgba(0,0,0,0.35);font-size:12px}
+
+/* ── SECTIONS ── */
+.sec{padding:96px 56px}
+.sec-dark{background:var(--dark)}
+.sec-black{background:var(--black)}
+
+.tag-line{font-size:9.5px;font-weight:700;letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin-bottom:14px;display:flex;align-items:center;gap:14px}
+.tag-line::before{content:'';width:28px;height:1px;background:var(--gold);flex-shrink:0}
+
+.sec-h2{font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:700;line-height:1.05;color:var(--white);margin-bottom:18px}
+.sec-h2 em{font-style:italic;color:var(--gold)}
+.sec-desc{font-size:13px;font-weight:300;color:var(--muted);line-height:1.9;letter-spacing:0.3px}
+
+/* ── ABOUT ── */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.about-quote{font-family:'Cormorant Garamond',serif;font-size:21px;font-style:italic;color:rgba(255,255,255,0.45);line-height:1.7;border-left:2px solid var(--gold);padding-left:22px;margin:32px 0}
+.about-tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.atag{font-size:9.5px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold);border:1px solid var(--border);padding:7px 16px;transition:all 0.2s}
+.atag:hover{background:var(--gold-dim)}
+.about-visual{aspect-ratio:4/5;background:linear-gradient(145deg,#181400,#0a0a0a);border:1px solid var(--border);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.about-visual::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 30% 30%,rgba(201,168,76,0.07),transparent 60%)}
+/* Barbershop pole inside about visual */
+.pole{position:absolute;left:50%;top:0;bottom:0;transform:translateX(-50%);width:48px;overflow:hidden;opacity:0.08}
+.pole-stripe{position:absolute;width:100%;height:60px;background:var(--gold);animation:poleScroll 3s linear infinite}
+.pole-stripe:nth-child(1){top:0;animation-delay:0s}
+.pole-stripe:nth-child(2){top:120px;animation-delay:0s}
+.pole-stripe:nth-child(3){top:240px;animation-delay:0s}
+.pole-stripe:nth-child(4){top:360px;animation-delay:0s}
+.pole-stripe:nth-child(5){top:480px;animation-delay:0s}
+@keyframes poleScroll{0%{transform:translateY(0)}100%{transform:translateY(120px)}}
+.about-visual-icon{position:relative;z-index:1;text-align:center}
+.avi-emoji{font-size:80px;display:block;margin-bottom:12px;filter:drop-shadow(0 0 20px rgba(201,168,76,0.4))}
+.avi-text{font-family:'Cormorant Garamond',serif;font-size:13px;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,0.2)}
+.about-badge{position:absolute;bottom:20px;right:20px;background:var(--gold);padding:14px 18px;text-align:center}
+.ab-n{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:700;color:#000;line-height:1}
+.ab-s{font-size:8px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(0,0,0,0.6);margin-top:2px}
+
+/* ── SERVICES ── */
+.svc-split{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:end;margin-bottom:60px}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+
+.svc-card{background:var(--card);padding:22px 24px;border:1px solid transparent;transition:all 0.3s;position:relative;overflow:hidden;cursor:default;display:flex;align-items:center;gap:20px}
+.svc-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(to right,var(--gold),var(--gold-light));transform:scaleX(0);transform-origin:left;transition:transform 0.35s}
+.svc-card:hover{background:#1c1c1c;border-color:var(--border)}
+.svc-card:hover::after{transform:scaleX(1)}
+.sc-num{display:none}
+.sc-icon{flex-shrink:0;display:block;width:48px;height:48px;transition:transform 0.3s}
+.svc-card:hover .sc-icon{transform:scale(1.1)}
+@keyframes poleS{0%{transform:rotate(-45deg) translateY(0)}100%{transform:rotate(-45deg) translateY(120px)}}
+@keyframes sb1{0%,100%{transform:rotate(0deg)}30%{transform:rotate(-20deg)}60%{transform:rotate(0deg)}80%{transform:rotate(-10deg)}}
+@keyframes sb2{0%,100%{transform:rotate(0deg)}30%{transform:rotate(20deg)}60%{transform:rotate(0deg)}80%{transform:rotate(10deg)}}
+.sc-text{flex:1;min-width:0}
+.sc-name{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;color:var(--white);margin-bottom:4px}
+.sc-desc{font-size:11px;font-weight:300;color:var(--muted);line-height:1.65;letter-spacing:0.2px}
+
+/* ── WHY US ── */
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+.why-list{list-style:none;margin-top:36px}
+.why-item{display:flex;gap:18px;padding:20px 0;border-bottom:1px solid rgba(255,255,255,0.05)}
+.why-item:last-child{border-bottom:none}
+.why-num{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:700;color:rgba(201,168,76,0.18);line-height:1;min-width:40px;margin-top:-2px}
+.why-title{font-size:13px;font-weight:600;color:var(--white);margin-bottom:5px;letter-spacing:0.5px}
+.why-desc{font-size:12px;font-weight:300;color:var(--muted);line-height:1.8}
+.why-right{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.why-stat{background:var(--card);border:1px solid var(--border);padding:28px 22px;text-align:center;transition:border-color 0.2s}
+.why-stat:hover{border-color:var(--gold)}
+.ws-n{font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:700;color:var(--gold);line-height:1;margin-bottom:8px}
+.ws-l{font-size:10px;font-weight:500;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;line-height:1.5}
+
+/* ── CTA STRIP ── */
+.cta-strip{background:linear-gradient(135deg,#0e0b00,#141000,#0e0b00);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:72px 56px;text-align:center;position:relative;overflow:hidden}
+.cta-strip::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(201,168,76,0.07),transparent 70%)}
+.cta-h{font-family:'Cormorant Garamond',serif;font-size:60px;font-weight:700;color:var(--white);line-height:1;margin-bottom:10px;position:relative}
+.cta-h em{font-style:italic;color:var(--gold)}
+.cta-sub{font-size:12px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;margin-bottom:40px;position:relative}
+.cta-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;position:relative}
+
+/* ── REVIEWS ── */
+.rev-hdr{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:52px;flex-wrap:wrap;gap:24px}
+.rev-score{}
+.rs-n{font-family:'Cormorant Garamond',serif;font-size:80px;font-weight:700;color:var(--gold);line-height:1}
+.rs-stars{font-size:16px;color:var(--gold);letter-spacing:4px;margin:4px 0}
+.rs-lbl{font-size:10px;font-weight:500;color:var(--muted);letter-spacing:2px;text-transform:uppercase}
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.rev-card{background:var(--card);padding:32px 28px;border:1px solid transparent;transition:all 0.25s}
+.rev-card:hover{border-color:var(--border)}
+.rev-flag{font-size:20px;margin-bottom:10px;display:block}
+.rev-stars{color:var(--gold);font-size:12px;letter-spacing:2px;margin-bottom:14px}
+.rev-text{font-family:'Cormorant Garamond',serif;font-size:16px;font-style:italic;color:rgba(255,255,255,0.65);line-height:1.8;margin-bottom:18px;border-left:2px solid var(--gold);padding-left:14px}
+.rev-author{font-size:11px;font-weight:700;color:var(--white);letter-spacing:1px;text-transform:uppercase}
+.rev-from{font-size:10px;font-weight:300;color:var(--muted);margin-top:2px}
+
+/* ── CONTACT ── */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
+.cinfo-block{margin-bottom:32px;padding-bottom:32px;border-bottom:1px solid var(--border)}
+.cinfo-block:last-of-type{border-bottom:none}
+.ci-lbl{font-size:8.5px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.ci-val{font-size:15px;font-weight:400;color:var(--white);line-height:1.8}
+.ci-val a{color:var(--white);text-decoration:none;transition:color 0.2s}
+.ci-val a:hover{color:var(--gold)}
+.hours-row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.04);font-size:13px}
+.hday{color:var(--muted)}.htime{color:var(--white);font-weight:500}
+.map-btn{display:inline-flex;align-items:center;gap:12px;margin-top:16px;padding:15px 22px;border:1px solid var(--border);color:var(--white);text-decoration:none;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;transition:all 0.2s}
+.map-btn:hover{border-color:var(--gold);color:var(--gold)}
+
+.book-panel{background:var(--card);border:1px solid var(--border);padding:48px 40px}
+.bp-lbl{font-size:8.5px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+.bp-h3{font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:700;color:var(--white);line-height:1.1;margin-bottom:10px}
+.bp-sub{font-size:12px;font-weight:300;color:var(--muted);line-height:1.9;margin-bottom:36px}
+.bp-wa{display:flex;align-items:center;justify-content:center;gap:10px;background:#25D366;color:#fff;padding:17px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;text-decoration:none;transition:all 0.2s;margin-bottom:10px}
+.bp-wa:hover{background:#1da851;transform:translateY(-1px)}
+.bp-call{display:flex;align-items:center;justify-content:center;gap:10px;background:transparent;color:var(--gold);border:1px solid var(--border);padding:15px;font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;text-decoration:none;transition:all 0.2s}
+.bp-call:hover{border-color:var(--gold);background:var(--gold-dim)}
+.bp-div{text-align:center;font-size:9px;color:rgba(255,255,255,0.15);letter-spacing:3px;text-transform:uppercase;margin:12px 0}
+.bp-hrs{margin-top:24px;padding-top:20px;border-top:1px solid var(--border);font-size:11px;color:var(--muted);text-align:center;line-height:2;letter-spacing:0.3px}
+.bp-hrs strong{color:rgba(255,255,255,0.55)}
+
+/* ── SERVICE CATEGORY LABELS ── */
+.svc-cat-label{font-size:9.5px;font-weight:700;letter-spacing:5px;text-transform:uppercase;color:var(--gold);padding:14px 20px;background:rgba(201,168,76,0.06);border:1px solid var(--border);border-bottom:none;display:inline-block}
+
+/* ── SCROLL SCISSORS ── */
+#scrollScissors{position:fixed;right:24px;top:50%;transform:translateY(-50%);pointer-events:none;z-index:9990;opacity:0;transition:opacity 0.4s}
+#scrollScissors.visible{opacity:1}
+#scrollScissors svg{width:36px;height:36px;filter:drop-shadow(0 0 6px rgba(201,168,76,0.5))}
+/* Cut trail line */
+#cutTrail{position:fixed;right:42px;top:0;width:1px;pointer-events:none;z-index:9989;background:linear-gradient(to bottom,transparent,rgba(201,168,76,0.4),transparent);transition:height 0.1s}
+
+
+@keyframes liveDot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.4;transform:scale(0.7)}}
+
+.hours-anim-wrap{display:flex;flex-direction:column;gap:10px}
+
+.hanim-row{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.05)}
+.hanim-row:last-child{border-bottom:none}
+
+.hanim-day{display:flex;align-items:center;gap:10px;font-size:13px;font-weight:500;color:var(--white);min-width:130px}
+.hanim-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+
+.hanim-right{display:flex;align-items:center;gap:14px;flex:1}
+.hanim-bar{flex:1;height:3px;background:rgba(255,255,255,0.06);border-radius:2px;overflow:hidden}
+.hanim-fill{height:100%;border-radius:2px;width:0;transition:width 1.4s cubic-bezier(0.25,1,0.5,1)}
+.hanim-fill.loaded{width:100%}
+.hanim-time{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:600;color:var(--gold);white-space:nowrap;letter-spacing:0.5px}
+
+
+footer{background:#080808;border-top:1px solid var(--border);padding:56px 56px 28px}
+.ft{display:grid;grid-template-columns:2fr 1fr 1fr;gap:72px;margin-bottom:44px}
+.ft-name{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:700;color:var(--white);letter-spacing:4px;text-transform:uppercase;margin-bottom:3px}
+.ft-sub{font-size:8.5px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+.ft-desc{font-size:12px;font-weight:300;color:var(--muted);line-height:1.8;max-width:280px;margin-bottom:24px}
+.ft-soc{display:flex;gap:10px}
+.fsoc{width:38px;height:38px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:15px;text-decoration:none;transition:all 0.2s}
+.fsoc:hover{border-color:var(--gold);background:var(--gold-dim)}
+.ft-col-title{font-size:8.5px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+.ft-links{list-style:none}
+.ft-links li{margin-bottom:11px}
+.ft-links a{font-size:12px;font-weight:300;color:var(--muted);text-decoration:none;transition:color 0.2s;letter-spacing:0.3px}
+.ft-links a:hover{color:var(--gold)}
+.ft-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:28px;border-top:1px solid var(--border);font-size:10px;color:rgba(255,255,255,0.18);letter-spacing:1px;flex-wrap:wrap;gap:10px}
+
+/* ── WA FLOAT ── */
+.wa-f{position:fixed;bottom:28px;right:28px;width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 24px rgba(37,211,102,0.4);text-decoration:none;z-index:999;animation:wap 3s infinite}
+.wa-f:hover{transform:scale(1.1)}
+@keyframes wap{0%,100%{box-shadow:0 4px 24px rgba(37,211,102,0.4)}50%{box-shadow:0 6px 32px rgba(37,211,102,0.65)}}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1024px){
+  .hdr{padding:0 28px}.hero{padding:90px 28px 60px;gap:36px}.sec{padding:72px 28px}
+  .about-grid,.why-grid,.contact-grid{grid-template-columns:1fr;gap:44px}
+  .svc-split{grid-template-columns:1fr;gap:20px}.why-right{grid-template-columns:1fr 1fr}
+  footer{padding:44px 28px 24px}.ft{grid-template-columns:1fr 1fr;gap:36px}
+}
+@media(max-width:768px){
+  .nav{display:none}.hbg{display:flex}
+  .hero{grid-template-columns:1fr;padding:80px 24px 56px}
+  .hero-h1{font-size:54px}.hero-right{height:340px}
+  .hero-circle{width:280px;height:280px}.tag-f1,.tag-f2,.tag-f3{display:none}
+  .svc-grid{grid-template-columns:1fr 1fr}.rev-grid{grid-template-columns:1fr}
+  .rev-hdr{flex-direction:column;align-items:flex-start}
+  .cta-h{font-size:40px}.ft{grid-template-columns:1fr}
+  .hero-stats{gap:28px}
+}
+@media(max-width:480px){.svc-grid{grid-template-columns:1fr}.hero-btns{flex-direction:column}}
+
+/* ── REVEAL ANIMATION ── */
+.r{opacity:0;transform:translateY(22px);transition:opacity 0.7s ease,transform 0.7s ease}
+.r.on{opacity:1;transform:translateY(0)}
+.r.d1{transition-delay:0.12s}.r.d2{transition-delay:0.24s}.r.d3{transition-delay:0.36s}
+
+/* ═════ NEW PREMIUM INJECTED CSS ═════ */
+/* 1. Shimmer effect for gold headings */
+.shimmer {
+  background: linear-gradient(90deg, var(--gold) 0%, #fff 50%, var(--gold) 100%);
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  animation: shimmerText 3s linear infinite;
+}
+@keyframes shimmerText { to { background-position: 200% center; } }
+
+/* 2. Floating Gold Dust Particles Container */
+#particles {
+  position: absolute; inset: 0; pointer-events: none; z-index: 0; overflow: hidden;
+}
+.dust {
+  position: absolute; background: var(--gold); border-radius: 50%;
+  box-shadow: 0 0 6px var(--gold);
+  animation: floatUp linear infinite;
+}
+@keyframes floatUp {
+  0% { transform: translateY(100vh) scale(0); opacity: 0; }
+  20% { opacity: 0.6; }
+  80% { opacity: 0.6; }
+  100% { transform: translateY(-20vh) scale(1); opacity: 0; }
+}
+
+/* 3. Magnetic button transition logic */
+.btn-gold, .btn-ghost { 
+  transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1), background 0.2s, color 0.2s; 
+  will-change: transform;
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">✦ Open Daily · Closes 10 PM · Walk-ins Welcome · Civil Lines, Jhelum ✦</div>
+
+<header>
+  <div class="hdr">
+    <ul class="nav">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+    </ul>
+    <a href="#" class="logo">
+      <div class="logo-name">Al Mumaizeen</div>
+      <div class="logo-sub">Premium Saloon · Jhelum</div>
+    </a>
+    <div class="hdr-right">
+      <a href="#contact" class="nav" style="list-style:none;text-decoration:none;font-size:10.5px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--muted);transition:color 0.2s" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--muted)'">Contact</a>
+      <a href="https://wa.me/923345837773?text=Assalam%20o%20Alaikum%2C%20I%27d%20like%20to%20book%20an%20appointment." class="btn-hdr" target="_blank">Book Now</a>
+      <button class="hbg" onclick="openM()"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="mob" id="mob">
+  <button class="mob-x" onclick="closeM()">✕</button>
+  <a href="#about" onclick="closeM()">About</a>
+  <a href="#services" onclick="closeM()">Services</a>
+  <a href="#reviews" onclick="closeM()">Reviews</a>
+  <a href="#contact" onclick="closeM()">Contact</a>
+  <a href="https://wa.me/923345837773" target="_blank" onclick="closeM()" style="font-family:'Montserrat',sans-serif;font-size:11px;letter-spacing:3px;background:var(--gold);color:#000;padding:15px 40px">BOOK NOW</a>
+</div>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+
+  <div class="hero-left">
+    <div class="hero-pre">Premium Men's Grooming · Est. Jhelum</div>
+    <h1 class="hero-h1">Look Sharp.<br><em>Feel Elite.</em></h1>
+    <div class="hero-clinic">Al Mumaizeen Saloon</div>
+    <p class="hero-desc">Jhelum's premium grooming destination. Expert haircuts, beard styling, hair colouring, and luxury grooming services — crafted for the modern man.</p>
+    <div class="hero-btns">
+      <a href="https://wa.me/923345837773?text=Assalam%20o%20Alaikum%2C%20I%27d%20like%20to%20book%20an%20appointment." class="btn-gold" target="_blank">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Book Appointment
+      </a>
+      <a href="tel:03345837773" class="btn-ghost">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+        0334 5837773
+      </a>
+    </div>
+    <div class="hero-stats">
+      <div><div class="hs-num">4.8★</div><div class="hs-lbl">Google Rating</div></div>
+      <div><div class="hs-num">32+</div><div class="hs-lbl">Reviews</div></div>
+      <div><div class="hs-num">10 PM</div><div class="hs-lbl">Closes Late</div></div>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div style="position:absolute;left:-20px;top:50%;transform:translateY(-50%);width:32px;height:320px;border-radius:16px;overflow:hidden;border:2px solid rgba(201,168,76,0.3);box-shadow:0 0 20px rgba(201,168,76,0.1)">
+      <div style="position:absolute;inset:0;background:#1a1a1a"></div>
+      <div style="position:absolute;inset:0;overflow:hidden">
+        <div style="position:absolute;width:200%;height:60px;background:var(--gold);top:-60px;left:-50%;animation:poleS 1.8s linear infinite;transform:rotate(-45deg)"></div>
+        <div style="position:absolute;width:200%;height:60px;background:var(--gold);top:60px;left:-50%;animation:poleS 1.8s linear infinite;transform:rotate(-45deg)"></div>
+        <div style="position:absolute;width:200%;height:60px;background:var(--gold);top:180px;left:-50%;animation:poleS 1.8s linear infinite;transform:rotate(-45deg)"></div>
+        <div style="position:absolute;width:200%;height:60px;background:var(--gold);top:300px;left:-50%;animation:poleS 1.8s linear infinite;transform:rotate(-45deg)"></div>
+        <div style="position:absolute;width:200%;height:20px;background:#c8c8c8;top:-20px;left:-50%;animation:poleS 1.8s linear infinite;transform:rotate(-45deg);opacity:0.2"></div>
+        <div style="position:absolute;width:200%;height:20px;background:#c8c8c8;top:100px;left:-50%;animation:poleS 1.8s linear infinite;transform:rotate(-45deg);opacity:0.2"></div>
+        <div style="position:absolute;width:200%;height:20px;background:#c8c8c8;top:220px;left:-50%;animation:poleS 1.8s linear infinite;transform:rotate(-45deg);opacity:0.2"></div>
+      </div>
+      <div style="position:absolute;top:0;left:0;right:0;height:18px;background:rgba(201,168,76,0.6);border-radius:14px 14px 0 0"></div>
+      <div style="position:absolute;bottom:0;left:0;right:0;height:18px;background:rgba(201,168,76,0.6);border-radius:0 0 14px 14px"></div>
+    </div>
+
+    <div class="hero-circle">
+      <div class="scissors-wrap">
+        <svg class="scissors-svg" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="100" cy="100" r="7" fill="#c9a84c"/>
+          <circle cx="100" cy="100" r="4" fill="#0a0a0a"/>
+
+          <g class="blade1">
+            <circle cx="52" cy="52" r="22" stroke="#c9a84c" stroke-width="3" fill="none"/>
+            <circle cx="52" cy="52" r="13" stroke="#c9a84c" stroke-width="1.5" fill="rgba(201,168,76,0.05)"/>
+            <line x1="68" y1="68" x2="93" y2="93" stroke="#c9a84c" stroke-width="3" stroke-linecap="round"/>
+            <path d="M100 100 L172 56" stroke="#c9a84c" stroke-width="3.5" stroke-linecap="round"/>
+            <path d="M100 100 L172 56" stroke="rgba(201,168,76,0.2)" stroke-width="7" stroke-linecap="round"/>
+            <path d="M104 97 L170 56" stroke="rgba(255,255,255,0.15)" stroke-width="1" stroke-linecap="round"/>
+          </g>
+
+          <g class="blade2">
+            <circle cx="52" cy="148" r="22" stroke="#c9a84c" stroke-width="3" fill="none"/>
+            <circle cx="52" cy="148" r="13" stroke="#c9a84c" stroke-width="1.5" fill="rgba(201,168,76,0.05)"/>
+            <line x1="68" y1="132" x2="93" y2="107" stroke="#c9a84c" stroke-width="3" stroke-linecap="round"/>
+            <path d="M100 100 L172 144" stroke="#c9a84c" stroke-width="3.5" stroke-linecap="round"/>
+            <path d="M100 100 L172 144" stroke="rgba(201,168,76,0.2)" stroke-width="7" stroke-linecap="round"/>
+            <path d="M104 103 L170 144" stroke="rgba(255,255,255,0.15)" stroke-width="1" stroke-linecap="round"/>
+          </g>
+
+          <g class="spark-group">
+            <circle cx="148" cy="98" r="2" fill="var(--gold)" opacity="0">
+              <animate attributeName="opacity" values="0;1;0" dur="2.5s" repeatCount="indefinite" begin="0.6s"/>
+              <animate attributeName="cx" values="148;155;148" dur="2.5s" repeatCount="indefinite" begin="0.6s"/>
+            </circle>
+            <circle cx="155" cy="104" r="1.5" fill="#e8c97a" opacity="0">
+              <animate attributeName="opacity" values="0;1;0" dur="2.5s" repeatCount="indefinite" begin="0.7s"/>
+              <animate attributeName="cy" values="104;110;104" dur="2.5s" repeatCount="indefinite" begin="0.7s"/>
+            </circle>
+            <circle cx="158" cy="95" r="1" fill="white" opacity="0">
+              <animate attributeName="opacity" values="0;0.8;0" dur="2.5s" repeatCount="indefinite" begin="0.65s"/>
+              <animate attributeName="cx" values="158;163;158" dur="2.5s" repeatCount="indefinite" begin="0.65s"/>
+            </circle>
+          </g>
+        </svg>
+
+        <div class="spark"></div>
+        <div class="spark"></div>
+        <div class="spark"></div>
+        <div class="spark"></div>
+        <div class="spark"></div>
+      </div>
+    </div>
+
+    <div class="hero-tag-float tag-f1">✂ Haircut</div>
+    <div class="hero-tag-float tag-f2">🎨 Colouring</div>
+    <div class="hero-tag-float tag-f3">🧔 Beard</div>
+
+    <div class="hero-rating">
+      <div class="hr-num">4.8</div>
+      <div class="hr-stars">★★★★★</div>
+      <div class="hr-lbl">32 Reviews</div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee-bar">
+  <div class="marquee-track">
+    <span class="m-item">Haircut & Styling</span><span class="m-sep">✦</span>
+    <span class="m-item">Beard Grooming</span><span class="m-sep">✦</span>
+    <span class="m-item">Hair Coloring</span><span class="m-sep">✦</span>
+    <span class="m-item">Hair Polish</span><span class="m-sep">✦</span>
+    <span class="m-item">Hair Steam</span><span class="m-sep">✦</span>
+    <span class="m-item">Keratin Treatment</span><span class="m-sep">✦</span>
+    <span class="m-item">Face Waxing</span><span class="m-sep">✦</span>
+    <span class="m-item">Blackhead Removing</span><span class="m-sep">✦</span>
+    <span class="m-item">Face Steam</span><span class="m-sep">✦</span>
+    <span class="m-item">Face Threading</span><span class="m-sep">✦</span>
+    <span class="m-item">Face Facial</span><span class="m-sep">✦</span>
+    <span class="m-item">Dulha Grooming</span><span class="m-sep">✦</span>
+    <span class="m-item">Eyebrow Threading</span><span class="m-sep">✦</span>
+    <span class="m-item">Body Waxing</span><span class="m-sep">✦</span>
+    <span class="m-item">Haircut & Styling</span><span class="m-sep">✦</span>
+    <span class="m-item">Beard Grooming</span><span class="m-sep">✦</span>
+    <span class="m-item">Hair Coloring</span><span class="m-sep">✦</span>
+    <span class="m-item">Hair Polish</span><span class="m-sep">✦</span>
+    <span class="m-item">Hair Steam</span><span class="m-sep">✦</span>
+    <span class="m-item">Keratin Treatment</span><span class="m-sep">✦</span>
+    <span class="m-item">Face Waxing</span><span class="m-sep">✦</span>
+    <span class="m-item">Face Threading</span><span class="m-sep">✦</span>
+    <span class="m-item">Dulha Grooming</span><span class="m-sep">✦</span>
+    <span class="m-item">Face Facial</span><span class="m-sep">✦</span>
+  </div>
+</div>
+
+<section class="sec sec-black" id="about">
+  <div class="about-grid">
+    <div>
+      <div class="tag-line">About Us</div>
+      <h2 class="sec-h2">Grooming is<br><em>an art form.</em></h2>
+      <p class="sec-desc">Al Mumaizeen Saloon is Jhelum's premium grooming destination — where every haircut is crafted with precision, every beard styled with care, and every client walks out looking their absolute best.</p>
+      <div class="about-quote">"A great cut doesn't just change how you look — it changes how you walk into a room."</div>
+      <p class="sec-desc">Located at Raisham Plaza, Civil Lines, Naya Mohalla Jhelum — open every single day until 10 PM for your convenience.</p>
+      <div class="about-tags">
+        <span class="atag">Expert Stylists</span>
+        <span class="atag">Premium Products</span>
+        <span class="atag">Walk-ins Welcome</span>
+        <span class="atag">Open Till 10 PM</span>
+        <span class="atag">4.8 ★ Google</span>
+      </div>
+    </div>
+    <div class="about-visual">
+      <div class="pole">
+        <div class="pole-stripe"></div>
+        <div class="pole-stripe"></div>
+        <div class="pole-stripe"></div>
+        <div class="pole-stripe"></div>
+        <div class="pole-stripe"></div>
+      </div>
+      <div class="about-visual-icon">
+        <span class="avi-emoji">💈</span>
+        <div class="avi-text">Premium · Grooming</div>
+      </div>
+      <div class="about-badge">
+        <div class="ab-n">4.8★</div>
+        <div class="ab-s">32 Reviews</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-dark" id="services">
+  <div class="svc-split">
+    <div>
+      <div class="tag-line">Our Services</div>
+      <h2 class="sec-h2">Service Beyond<br><em>Expectation.</em></h2>
+    </div>
+    <p class="sec-desc">Every service delivered by skilled professionals — complete grooming, hair, and skin care under one roof in Jhelum.</p>
+  </div>
+
+  <div class="svc-cat-label">✂ Hair Services</div>
+  <div class="svc-grid" style="margin-bottom:2px">
+
+    <div class="svc-card r">
+      <div class="sc-icon">
+        <svg width="48" height="48" viewBox="0 0 56 56" fill="none">
+          <circle cx="28" cy="28" r="3" fill="#c9a84c"/>
+          <circle cx="28" cy="28" r="1.5" fill="#141414"/>
+          <g style="transform-origin:28px 28px;animation:sb1 2.2s ease-in-out infinite">
+            <circle cx="14" cy="14" r="7" stroke="#c9a84c" stroke-width="2" fill="none"/><circle cx="14" cy="14" r="3.5" fill="rgba(201,168,76,0.1)"/>
+            <line x1="20" y1="20" x2="25.5" y2="25.5" stroke="#c9a84c" stroke-width="2.2" stroke-linecap="round"/>
+            <line x1="28" y1="28" x2="48" y2="16" stroke="#c9a84c" stroke-width="2.5" stroke-linecap="round"/>
+          </g>
+          <g style="transform-origin:28px 28px;animation:sb2 2.2s ease-in-out infinite">
+            <circle cx="14" cy="42" r="7" stroke="#c9a84c" stroke-width="2" fill="none"/><circle cx="14" cy="42" r="3.5" fill="rgba(201,168,76,0.1)"/>
+            <line x1="20" y1="36" x2="25.5" y2="30.5" stroke="#c9a84c" stroke-width="2.2" stroke-linecap="round"/>
+            <line x1="28" y1="28" x2="48" y2="40" stroke="#c9a84c" stroke-width="2.5" stroke-linecap="round"/>
+          </g>
+          <circle cx="44" cy="27" r="1.5" fill="#e8c97a" opacity="0"><animate attributeName="opacity" values="0;1;0" dur="2.2s" repeatCount="indefinite" begin="0.5s"/></circle>
+        </svg>
+      </div>
+      <div class="sc-text"><div class="sc-name">Haircut, Beard & Hair Styling</div><div class="sc-desc">All cuts — fade, undercut, classic, modern. Expert beard shaping and full styling by skilled hands.</div></div>
+    </div>
+
+    <div class="svc-card r d1">
+      <div class="sc-icon">
+        <svg width="48" height="48" viewBox="0 0 56 56" fill="none">
+          <rect x="24" y="4" width="8" height="26" rx="3" fill="rgba(201,168,76,0.15)" stroke="#c9a84c" stroke-width="1.8"/>
+          <rect x="22" y="26" width="12" height="5" rx="1" fill="#c9a84c"/>
+          <path d="M22 31 Q24 38 28 40 Q32 38 34 31 Z" fill="rgba(201,168,76,0.4)" stroke="#c9a84c" stroke-width="1.5"><animate attributeName="d" values="M22 31 Q24 38 28 40 Q32 38 34 31 Z;M23 31 Q24 39 28 41 Q32 39 33 31 Z;M22 31 Q24 38 28 40 Q32 38 34 31 Z" dur="2s" repeatCount="indefinite"/></path>
+          <circle cx="28" cy="44" r="2" fill="#c9a84c" opacity="0"><animate attributeName="cy" values="40;50;50" dur="1.8s" repeatCount="indefinite" begin="0s"/><animate attributeName="opacity" values="0;1;0" dur="1.8s" repeatCount="indefinite" begin="0s"/></circle>
+          <circle cx="24" cy="44" r="1.5" fill="#e8c97a" opacity="0"><animate attributeName="cy" values="38;50;50" dur="2.4s" repeatCount="indefinite" begin="0.6s"/><animate attributeName="opacity" values="0;0.8;0" dur="2.4s" repeatCount="indefinite" begin="0.6s"/></circle>
+          <ellipse cx="28" cy="52" rx="10" ry="2.5" fill="rgba(201,168,76,0.15)"><animate attributeName="rx" values="10;13;10" dur="2s" repeatCount="indefinite"/></ellipse>
+        </svg>
+      </div>
+      <div class="sc-text"><div class="sc-name">Hair Coloring</div><div class="sc-desc">Professional full colour, highlights, and toning using premium products for long-lasting, vibrant results.</div></div>
+    </div>
+
+    <div class="svc-card r d2">
+      <div class="sc-icon">
+        <svg width="48" height="48" viewBox="0 0 56 56" fill="none">
+          <ellipse cx="28" cy="28" rx="14" ry="18" stroke="#c9a84c" stroke-width="2" fill="rgba(201,168,76,0.05)"/>
+          <path d="M18 20 Q28 12 38 20" stroke="#c9a84c" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.5"/>
+          <path d="M20 16 Q28 10 36 16" stroke="white" stroke-width="3" fill="none" stroke-linecap="round" opacity="0">
+            <animate attributeName="opacity" values="0;0.4;0" dur="2s" repeatCount="indefinite"/>
+            <animate attributeName="d" values="M20 16 Q28 10 36 16;M22 14 Q28 8 34 14;M20 16 Q28 10 36 16" dur="2s" repeatCount="indefinite"/>
+          </path>
+          <circle cx="22" cy="20" r="3" fill="rgba(255,255,255,0.15)" opacity="0"><animate attributeName="opacity" values="0;0.6;0" dur="2s" repeatCount="indefinite" begin="0.4s"/></circle>
+          <circle cx="34" cy="18" r="2" fill="#e8c97a" opacity="0"><animate attributeName="opacity" values="0;1;0" dur="1.5s" repeatCount="indefinite" begin="0.8s"/><animate attributeName="r" values="2;3;2" dur="1.5s" repeatCount="indefinite" begin="0.8s"/></circle>
+          <circle cx="40" cy="26" r="1.5" fill="#c9a84c" opacity="0"><animate attributeName="opacity" values="0;1;0" dur="1.8s" repeatCount="indefinite" begin="1.2s"/></circle>
+          <text x="28" y="32" text-anchor="middle" font-size="10" fill="#c9a84c" opacity="0.6" font-family="serif">POLISH</text>
+        </svg>
+      </div>
+      <div class="sc-text"><div class="sc-name">Hair Polish</div><div class="sc-desc">Deep shine treatment that adds brilliant gloss, smooths the cuticle, and leaves hair looking healthy and lustrous.</div></div>
+    </div>
+
+    <div class="svc-card r">
+      <div class="sc-icon">
+        <svg width="48" height="48" viewBox="0 0 56 56" fill="none">
+          <path d="M18 44 Q20 38 18 32 Q16 26 18 20" stroke="#c9a84c" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.3"><animate attributeName="opacity" values="0.3;0.8;0.3" dur="2s" repeatCount="indefinite"/><animate attributeName="d" values="M18 44 Q20 38 18 32 Q16 26 18 20;M18 44 Q22 38 18 32 Q14 26 18 20;M18 44 Q20 38 18 32 Q16 26 18 20" dur="2s" repeatCount="indefinite"/></path>
+          <path d="M28 44 Q30 38 28 32 Q26 26 28 20" stroke="#c9a84c" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.5"><animate attributeName="opacity" values="0.5;1;0.5" dur="2s" repeatCount="indefinite" begin="0.3s"/><animate attributeName="d" values="M28 44 Q30 38 28 32 Q26 26 28 20;M28 44 Q32 38 28 32 Q24 26 28 20;M28 44 Q30 38 28 32 Q26 26 28 20" dur="2s" repeatCount="indefinite" begin="0.3s"/></path>
+          <path d="M38 44 Q40 38 38 32 Q36 26 38 20" stroke="#c9a84c" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.3"><animate attributeName="opacity" values="0.3;0.8;0.3" dur="2s" repeatCount="indefinite" begin="0.6s"/><animate attributeName="d" values="M38 44 Q40 38 38 32 Q36 26 38 20;M38 44 Q42 38 38 32 Q34 26 38 20;M38 44 Q40 38 38 32 Q36 26 38 20" dur="2s" repeatCount="indefinite" begin="0.6s"/></path>
+          <rect x="12" y="44" width="32" height="8" rx="4" fill="rgba(201,168,76,0.2)" stroke="#c9a84c" stroke-width="1.5"/>
+          <rect x="16" y="46" width="24" height="4" rx="2" fill="rgba(201,168,76,0.3)"/>
+        </svg>
+      </div>
+      <div class="sc-text"><div class="sc-name">Hair Steam Treatment</div><div class="sc-desc">Hot steam therapy that deeply conditions, improves scalp health, and restores moisture and softness to dry hair.</div></div>
+    </div>
+
+    <div class="svc-card r d1">
+      <div class="sc-icon">
+        <svg width="48" height="48" viewBox="0 0 56 56" fill="none">
+          <path d="M10 14 Q20 10 28 14 Q36 18 46 14" stroke="#c9a84c" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.4"><animate attributeName="opacity" values="0.4;1;0.4" dur="2.5s" repeatCount="indefinite"/></path>
+          <path d="M10 22 Q20 18 28 22 Q36 26 46 22" stroke="#c9a84c" stroke-width="2.5" fill="none" stroke-linecap="round"><animate attributeName="d" values="M10 22 Q20 18 28 22 Q36 26 46 22;M10 22 Q20 20 28 22 Q36 24 46 22;M10 22 Q20 18 28 22 Q36 26 46 22" dur="2s" repeatCount="indefinite"/></path>
+          <path d="M10 30 Q20 26 28 30 Q36 34 46 30" stroke="#e8c97a" stroke-width="2.5" fill="none" stroke-linecap="round"><animate attributeName="d" values="M10 30 Q20 26 28 30 Q36 34 46 30;M10 30 Q20 28 28 30 Q36 32 46 30;M10 30 Q20 26 28 30 Q36 34 46 30" dur="2s" repeatCount="indefinite" begin="0.4s"/></path>
+          <path d="M10 38 Q20 34 28 38 Q36 42 46 38" stroke="#c9a84c" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.4"><animate attributeName="opacity" values="0.4;1;0.4" dur="2.5s" repeatCount="indefinite" begin="0.8s"/></path>
+          <text x="28" y="52" text-anchor="middle" font-size="9" fill="#c9a84c" opacity="0.5" font-family="serif" letter-spacing="2">KERATIN</text>
+        </svg>
+      </div>
+      <div class="sc-text"><div class="sc-name">Hair Keratin Treatment</div><div class="sc-desc">Premium keratin smoothing that eliminates frizz, repairs damage, and leaves hair straight, soft, and silky for months.</div></div>
+    </div>
+
+    <div class="svc-card r d2">
+      <div class="sc-icon">
+        <svg width="48" height="48" viewBox="0 0 56 56" fill="none">
+          <rect x="6" y="22" width="36" height="10" rx="3" fill="rgba(201,168,76,0.1)" stroke="#c9a84c" stroke-width="2"><animate attributeName="x" values="6;10;6" dur="1.6s" repeatCount="indefinite"/></rect>
+          <line x1="12" y1="32" x2="12" y2="40" stroke="#c9a84c" stroke-width="2" stroke-linecap="round"><animate attributeName="x1" values="12;16;12" dur="1.6s" repeatCount="indefinite"/><animate attributeName="x2" values="12;16;12" dur="1.6s" repeatCount="indefinite"/></line>
+          <line x1="17" y1="32" x2="17" y2="40" stroke="#c9a84c" stroke-width="2" stroke-linecap="round"><animate attributeName="x1" values="17;21;17" dur="1.6s" repeatCount="indefinite"/><animate attributeName="x2" values="17;21;17" dur="1.6s" repeatCount="indefinite"/></line>
+          <line x1="22" y1="32" x2="22" y2="40" stroke="#c9a84c" stroke-width="2" stroke-linecap="round"><animate attributeName="x1" values="22;26;22" dur="1.6s" repeatCount="indefinite"/><animate attributeName="x2" values="22;26;22" dur="1.6s" repeatCount="indefinite"/></line>
+          <line x1="27" y1="32" x2="27" y2="40" stroke="#c9a84c" stroke-width="2" stroke-linecap="round"><animate attributeName="x1" values="27;31;27" dur="1.6s" repeatCount="indefinite"/><animate attributeName="x2" values="27;31;27" dur="1.6s" repeatCount="indefinite"/></line>
+          <line x1="32" y1="32" x2="32" y2="40" stroke="#c9a84c" stroke-width="2" stroke-linecap="round"><animate attributeName="x1" values="32;36;32" dur="1.6s" repeatCount="indefinite"/><animate attributeName="x2" values="32;36;32" dur="1.6s" repeatCount="indefinite"/></line>
+          <path d="M8 18 Q14 10 20 18 Q26 26 32 16 Q38 6 44 14" stroke="#c9a84c" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.4"><animate attributeName="opacity" values="0.4;0.8;0.4" dur="2s" repeatCount="indefinite"/></path>
+        </svg>
+      </div>
+      <div class="sc-text"><div class="sc-name">Hairstyling</div><div class="sc-desc">Blow dry, setting, and finishing. Walk in looking good. Walk out looking exceptional.</div></div>
+    </div>
+
+  </div>
+
+  <div class="svc-cat-label" style="margin-top:2px">✦ Face Services</div>
+  <div class="svc-grid" style="margin-bottom:2px">
+
+    <div class="svc-card r">
+      <div class="sc-icon">
+        <svg width="48" height="48" viewBox="0 0 56 56" fill="none">
+          <rect x="10" y="28" width="32" height="10" rx="3" fill="rgba(201,168,76,0.25)" stroke="#c9a84c" stroke-width="2"><animate attributeName="y" values="28;24;28" dur="2s" repeatCount="indefinite"/></rect>
+          <path d="M38 28 Q44 22 46 18" stroke="#e8c97a" stroke-width="2" fill="none" stroke-linecap="round"><animate attributeName="d" values="M38 28 Q44 22 46 18;M36 24 Q42 16 44 10;M38 28 Q44 22 46 18" dur="2s" repeatCount="indefinite"/></path>
+          <rect x="12" y="36" width="32" height="10" rx="3" fill="rgba(201,168,76,0.08)" stroke="#c9a84c" stroke-width="1.5" opacity="0.5"/>
+          <circle cx="18" cy="42" r="1.5" fill="#c9a84c" opacity="0"><animate attributeName="opacity" values="0;0;0.8;0" dur="2s" repeatCount="indefinite" begin="1s"/></circle>
+          <circle cx="28" cy="44" r="1" fill="#e8c97a" opacity="0"><animate attributeName="opacity" values="0;0;0.8;0" dur="2s" repeatCount="indefinite" begin="1.2s"/></circle>
+          <circle cx="38" cy="42" r="1.5" fill="#c9a84c" opacity="0"><animate attributeName="opacity" values="0;0;0.8;0" dur="2s" repeatCount="indefinite" begin="1.4s"/></circle>
+        </svg>
+      </div>
+      <div class="sc-text"><div class="sc-name">Face Waxing</div><div class="sc-desc">Smooth, clean facial hair removal using high-quality wax. Long-lasting results with minimal irritation.</div></div>
+    </div>
+
+    <div class="svc-card r d1">
+      <div class="sc-icon">
+        <svg width="48" height="48" viewBox="0 0 56 56" fill="none">
+          <ellipse cx="28" cy="28" rx="16" ry="20" stroke="#c9a84c" stroke-width="2" fill="rgba(201,168,76,0.04)"/>
+          <circle cx="22" cy="26" r="2.5" fill="#c9a84c" opacity="0.5"><animate attributeName="r" values="2.5;1;0" dur="2s" repeatCount="indefinite" begin="0.2s"/><animate attributeName="opacity" values="0.5;0.8;0" dur="2s" repeatCount="indefinite" begin="0.2s"/></circle>
+          <circle cx="28" cy="24" r="2" fill="#c9a84c" opacity="0.5"><animate attributeName="r" values="2;1;0" dur="2s" repeatCount="indefinite" begin="0.5s"/><animate attributeName="opacity" values="0.5;0.8;0" dur="2s" repeatCount="indefinite" begin="0.5s"/></circle>
+          <circle cx="34" cy="26" r="2.5" fill="#c9a84c" opacity="0.5"><animate attributeName="r" values="2.5;1;0" dur="2s" repeatCount="indefinite" begin="0.8s"/><animate attributeName="opacity" values="0.5;0.8;0" dur="2s" repeatCount="indefinite" begin="0.8s"/></circle>
+          <circle cx="22" cy="26" r="0" fill="none" stroke="#e8c97a" stroke-width="1" opacity="0"><animate attributeName="r" values="0;6;0" dur="2s" repeatCount="indefinite" begin="1s"/><animate attributeName="opacity" values="0;0.7;0" dur="2s" repeatCount="indefinite" begin="1s"/></circle>
+          <circle cx="28" cy="24" r="0" fill="none" stroke="#e8c97a" stroke-width="1" opacity="0"><animate attributeName="r" values="0;5;0" dur="2s" repeatCount="indefinite" begin="1.3s"/><animate attributeName="opacity" values="0;0.7;0" dur="2s" repeatCount="indefinite" begin="1.3s"/></circle>
+        </svg>
+      </div>
+      <div class="sc-text"><div class="sc-name">Face Blackhead Removing</div><div class="sc-desc">Deep pore cleansing to remove blackheads and unclog pores, leaving skin visibly cleaner and smoother.</div></div>
+    </div>
+
+    <div class="svc-card r d2">
+      <div class="sc-icon">
+        <svg width="48" height="48" viewBox="0 0 56 56" fill="none">
+          <path d="M20 40 Q22 34 20 28 Q18 22 20 16" stroke="#c9a84c" stroke-width="2" fill="none" stroke-linecap="round"><animate attributeName="d" values="M20 40 Q22 34 20 28 Q18 22 20 16;M20 40 Q24 34 20 28 Q16 22 20 16;M20 40 Q22 34 20 28 Q18 22 20 16" dur="1.8s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.5;1;0.5" dur="1.8s" repeatCount="indefinite"/></path>
+          <path d="M28 40 Q30 34 28 28 Q26 22 28 16" stroke="#e8c97a" stroke-width="2.5" fill="none" stroke-linecap="round"><animate attributeName="d" values="M28 40 Q30 34 28 28 Q26 22 28 16;M28 40 Q32 34 28 28 Q24 22 28 16;M28 40 Q30 34 28 28 Q26 22 28 16" dur="1.8s" repeatCount="indefinite" begin="0.3s"/></path>
+          <path d="M36 40 Q38 34 36 28 Q34 22 36 16" stroke="#c9a84c" stroke-width="2" fill="none" stroke-linecap="round"><animate attributeName="d" values="M36 40 Q38 34 36 28 Q34 22 36 16;M36 40 Q40 34 36 28 Q32 22 36 16;M36 40 Q38 34 36 28 Q34 22 36 16" dur="1.8s" repeatCount="indefinite" begin="0.6s"/><animate attributeName="opacity" values="0.5;1;0.5" dur="1.8s" repeatCount="indefinite" begin="0.6s"/></path>
+          <rect x="14" y="40" width="28" height="6" rx="3" fill="rgba(201,168,76,0.2)" stroke="#c9a84c" stroke-width="1.5"/>
+          <text x="28" y="52" text-anchor="middle" font-size="8" fill="#c9a84c" opacity="0.5" font-family="serif" letter-spacing="1">FACE</text>
+        </svg>
+      </div>
+      <div class="sc-text"><div class="sc-name">Face Steam</div><div class="sc-desc">Deep cleansing facial steam that opens pores, removes impurities, and leaves skin refreshed and glowing.</div></div>
+    </div>
+
+    <div class="svc-card r">
+      <div class="sc-icon">
+        <svg width="48" height="48" viewBox="0 0 56 56" fill="none">
+          <path d="M8 30 Q18 14 28 18 Q38 14 48 30" stroke="#c9a84c" stroke-width="3" fill="none" stroke-linecap="round"><animate attributeName="d" values="M8 30 Q18 14 28 18 Q38 14 48 30;M8 28 Q18 12 28 16 Q38 12 48 28;M8 30 Q18 14 28 18 Q38 14 48 30" dur="3s" repeatCount="indefinite"/></path>
+          <path d="M10 34 Q16 28 22 34 Q28 40 34 34 Q40 28 46 34" stroke="#e8c97a" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-dasharray="4 2"><animate attributeName="stroke-dashoffset" values="0;-24;-48" dur="1.2s" repeatCount="indefinite"/></path>
+          <circle cx="22" cy="34" r="3" stroke="#c9a84c" stroke-width="1.5" fill="none" opacity="0.6"><animate attributeName="cx" values="10;28;46;28;10" dur="2.4s" repeatCount="indefinite"/><animate attributeName="cy" values="34;28;34;40;34" dur="2.4s" repeatCount="indefinite"/></circle>
+          <line x1="18" y1="18" x2="16" y2="14" stroke="#c9a84c" stroke-width="1" stroke-linecap="round" opacity="0"><animate attributeName="opacity" values="0;0.8;0" dur="2.4s" repeatCount="indefinite" begin="0.3s"/></line>
+          <line x1="28" y1="16" x2="26" y2="11" stroke="#c9a84c" stroke-width="1" stroke-linecap="round" opacity="0"><animate attributeName="opacity" values="0;0.8;0" dur="2.4s" repeatCount="indefinite" begin="0.8s"/></line>
+        </svg>
+      </div>
+      <div class="sc-text"><div class="sc-name">Face Threading</div><div class="sc-desc">Precise threading for eyebrows, upper lip, and full face. Clean, defined shapes that last.</div></div>
+    </div>
+
+    <div class="svc-card r d1">
+      <div class="sc-icon">
+        <svg width="48" height="48" viewBox="0 0 56 56" fill="none">
+          <ellipse cx="28" cy="26" rx="16" ry="18" stroke="#c9a84c" stroke-width="2" fill="rgba(201,168,76,0.04)"/>
+          <ellipse cx="28" cy="26" rx="16" ry="18" stroke="#c9a84c" stroke-width="1" fill="none" opacity="0"><animate attributeName="rx" values="16;22;16" dur="2s" repeatCount="indefinite"/><animate attributeName="ry" values="18;24;18" dur="2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.6;0;0.6" dur="2s" repeatCount="indefinite"/></ellipse>
+          <circle cx="12" cy="16" r="2" fill="#e8c97a" opacity="0"><animate attributeName="opacity" values="0;1;0" dur="2s" repeatCount="indefinite" begin="0s"/></circle>
+          <circle cx="44" cy="16" r="2" fill="#e8c97a" opacity="0"><animate attributeName="opacity" values="0;1;0" dur="2s" repeatCount="indefinite" begin="0.4s"/></circle>
+          <circle cx="10" cy="30" r="1.5" fill="#c9a84c" opacity="0"><animate attributeName="opacity" values="0;1;0" dur="2s" repeatCount="indefinite" begin="0.8s"/></circle>
+          <circle cx="46" cy="30" r="1.5" fill="#c9a84c" opacity="0"><animate attributeName="opacity" values="0;1;0" dur="2s" repeatCount="indefinite" begin="1.2s"/></circle>
+          <circle cx="28" cy="6" r="2" fill="#e8c97a" opacity="0"><animate attributeName="opacity" values="0;1;0" dur="2s" repeatCount="indefinite" begin="0.6s"/></circle>
+          <path d="M22 30 Q28 36 34 30" stroke="#c9a84c" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.5"/>
+          <circle cx="22" cy="24" r="2" fill="#c9a84c" opacity="0.4"/>
+          <circle cx="34" cy="24" r="2" fill="#c9a84c" opacity="0.4"/>
+        </svg>
+      </div>
+      <div class="sc-text"><div class="sc-name">Face Facial</div><div class="sc-desc">Full cleansing, exfoliation, and nourishing facial treatment. Glowing, refreshed skin from the inside out.</div></div>
+    </div>
+
+    <div class="svc-card r d2">
+      <div class="sc-icon">
+        <svg width="48" height="48" viewBox="0 0 56 56" fill="none">
+          <path d="M14 24 L10 10 L20 18 L28 6 L36 18 L46 10 L42 24 Z" stroke="#c9a84c" stroke-width="2" fill="rgba(201,168,76,0.15)" stroke-linejoin="round">
+            <animate attributeName="opacity" values="1;0.6;1" dur="2s" repeatCount="indefinite"/>
+          </path>
+          <circle cx="28" cy="10" r="2.5" fill="#e8c97a"><animate attributeName="r" values="2.5;3.5;2.5" dur="1.5s" repeatCount="indefinite"/></circle>
+          <circle cx="20" cy="18" r="1.5" fill="#c9a84c" opacity="0.8"/>
+          <circle cx="36" cy="18" r="1.5" fill="#c9a84c" opacity="0.8"/>
+          <rect x="12" y="24" width="32" height="5" rx="2" fill="rgba(201,168,76,0.3)" stroke="#c9a84c" stroke-width="1.5"/>
+          <circle cx="16" cy="38" r="2" fill="#e8c97a" opacity="0"><animate attributeName="opacity" values="0;1;0" dur="2s" repeatCount="indefinite" begin="0.5s"/></circle>
+          <circle cx="28" cy="40" r="2.5" fill="#c9a84c" opacity="0"><animate attributeName="opacity" values="0;1;0" dur="2s" repeatCount="indefinite" begin="1s"/></circle>
+          <circle cx="40" cy="38" r="2" fill="#e8c97a" opacity="0"><animate attributeName="opacity" values="0;1;0" dur="2s" repeatCount="indefinite" begin="1.5s"/></circle>
+          <text x="28" y="52" text-anchor="middle" font-size="8" fill="#c9a84c" opacity="0.6" font-family="serif" letter-spacing="1">DULHA</text>
+        </svg>
+      </div>
+      <div class="sc-text"><div class="sc-name">Dulha Grooming Makeup</div><div class="sc-desc">Complete groom's grooming package — haircut, beard styling, face care, and bridal makeup for your special day.</div></div>
+    </div>
+
+  </div>
+
+  <div class="svc-cat-label" style="margin-top:2px">🧔 Beard Services</div>
+  <div class="svc-grid">
+
+    <div class="svc-card r">
+      <div class="sc-icon">
+        <svg width="48" height="48" viewBox="0 0 56 56" fill="none">
+          <rect x="18" y="8" width="20" height="32" rx="5" stroke="#c9a84c" stroke-width="2" fill="rgba(201,168,76,0.05)"><animate attributeName="x" values="18;19;18;17;18" dur="0.15s" repeatCount="indefinite"/></rect>
+          <rect x="22" y="12" width="12" height="8" rx="2" fill="rgba(201,168,76,0.15)" stroke="#c9a84c" stroke-width="1"/>
+          <circle cx="28" cy="16" r="2" fill="#c9a84c"><animate attributeName="opacity" values="1;0.3;1" dur="1.2s" repeatCount="indefinite"/></circle>
+          <rect x="20" y="40" width="16" height="4" rx="1" fill="#c9a84c"/>
+          <line x1="23" y1="40" x2="23" y2="44" stroke="#141414" stroke-width="1.5"/><line x1="26" y1="40" x2="26" y2="44" stroke="#141414" stroke-width="1.5"/><line x1="29" y1="40" x2="29" y2="44" stroke="#141414" stroke-width="1.5"/><line x1="32" y1="40" x2="32" y2="44" stroke="#141414" stroke-width="1.5"/>
+          <line x1="12" y1="20" x2="16" y2="20" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"><animate attributeName="opacity" values="0.6;0;0.6" dur="0.15s" repeatCount="indefinite"/></line>
+          <line x1="40" y1="20" x2="44" y2="20" stroke="#c9a84c" stroke-width="1.5" stroke-linecap="round"><animate attributeName="opacity" values="0;0.6;0" dur="0.15s" repeatCount="indefinite"/></line>
+        </svg>
+      </div>
+      <div class="sc-text"><div class="sc-name">Beard Grooming & Trim</div><div class="sc-desc">Expert beard trimming, shaping, line-up, and full styling. Sharp, clean, defined — every time.</div></div>
+    </div>
+
+    <div class="svc-card r d1">
+      <div class="sc-icon">
+        <svg width="48" height="48" viewBox="0 0 56 56" fill="none">
+          <path d="M8 30 Q18 14 28 18 Q38 14 48 30" stroke="#c9a84c" stroke-width="3" fill="none" stroke-linecap="round"><animate attributeName="d" values="M8 30 Q18 14 28 18 Q38 14 48 30;M8 28 Q18 12 28 16 Q38 12 48 28;M8 30 Q18 14 28 18 Q38 14 48 30" dur="3s" repeatCount="indefinite"/></path>
+          <path d="M10 34 Q16 28 22 34 Q28 40 34 34 Q40 28 46 34" stroke="#e8c97a" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-dasharray="4 2"><animate attributeName="stroke-dashoffset" values="0;-24;-48" dur="1.2s" repeatCount="indefinite"/></path>
+          <circle cx="22" cy="34" r="3" stroke="#c9a84c" stroke-width="1.5" fill="none" opacity="0.6"><animate attributeName="cx" values="10;28;46;28;10" dur="2.4s" repeatCount="indefinite"/></circle>
+        </svg>
+      </div>
+      <div class="sc-text"><div class="sc-name">Eyebrow Threading</div><div class="sc-desc">Precise eyebrow shaping and threading for clean, defined, perfectly arched brows.</div></div>
+    </div>
+
+    <div class="svc-card r d2">
+      <div class="sc-icon">
+        <svg width="48" height="48" viewBox="0 0 56 56" fill="none">
+          <ellipse cx="28" cy="14" rx="12" ry="5" fill="rgba(201,168,76,0.15)" stroke="#c9a84c" stroke-width="1.5"/>
+          <ellipse cx="28" cy="14" rx="8" ry="3" fill="rgba(201,168,76,0.3)"><animate attributeName="ry" values="3;4;3" dur="2s" repeatCount="indefinite"/></ellipse>
+          <rect x="26" y="6" width="4" height="12" rx="2" fill="#c9a84c" opacity="0.7"><animate attributeName="y" values="6;4;6" dur="2s" repeatCount="indefinite"/></rect>
+          <rect x="10" y="28" width="32" height="10" rx="3" fill="rgba(201,168,76,0.25)" stroke="#c9a84c" stroke-width="2"><animate attributeName="y" values="28;24;28" dur="2s" repeatCount="indefinite"/></rect>
+          <path d="M38 28 Q44 22 46 18" stroke="#e8c97a" stroke-width="2" fill="none" stroke-linecap="round"><animate attributeName="d" values="M38 28 Q44 22 46 18;M36 24 Q42 16 44 10;M38 28 Q44 22 46 18" dur="2s" repeatCount="indefinite"/></path>
+          <circle cx="28" cy="44" r="2" fill="#c9a84c" opacity="0"><animate attributeName="opacity" values="0;0;0.8;0" dur="2s" repeatCount="indefinite" begin="1s"/></circle>
+        </svg>
+      </div>
+      <div class="sc-text"><div class="sc-name">Body Waxing</div><div class="sc-desc">Full waxing service using premium quality wax for smooth, lasting results with minimal irritation.</div></div>
+    </div>
+
+  </div>
+</section>
+
+
+<section class="sec sec-black">
+  <div class="why-grid">
+    <div>
+      <div class="tag-line">Why Choose Us</div>
+      <h2 class="sec-h2">Jhelum's most<br><em>trusted saloon.</em></h2>
+      <p class="sec-desc">With a 4.8 Google rating and a commitment to premium grooming, Al Mumaizeen has earned the trust of men across Jhelum.</p>
+      <ul class="why-list">
+        <li class="why-item r"><div class="why-num">01</div><div><div class="why-title">Expert Professionals</div><div class="why-desc">Our skilled barbers and stylists are trained in the latest grooming techniques — delivering consistent, high-quality results every visit.</div></div></li>
+        <li class="why-item r"><div class="why-num">02</div><div><div class="why-title">Premium Products Only</div><div class="why-desc">We use only top-quality grooming products for all services — because your hair and skin deserve nothing less than the best.</div></div></li>
+        <li class="why-item r"><div class="why-num">03</div><div><div class="why-title">Open Daily Till 10 PM</div><div class="why-desc">Convenient hours for every lifestyle. Come after work, after dinner — we're here whenever you need us, 7 days a week.</div></div></li>
+        <li class="why-item r"><div class="why-num">04</div><div><div class="why-title">Walk-ins Always Welcome</div><div class="why-desc">No appointment needed. Walk in, get your look sorted, and walk out feeling your best — it's that simple.</div></div></li>
+      </ul>
+    </div>
+    <div class="why-right">
+      <div class="why-stat r"><div class="ws-n">4.8</div><div class="ws-l">Google Star Rating</div></div>
+      <div class="why-stat r d1"><div class="ws-n">32+</div><div class="ws-l">Verified Reviews</div></div>
+      <div class="why-stat r d2"><div class="ws-n">10PM</div><div class="ws-l">Open every day</div></div>
+      <div class="why-stat r d3"><div class="ws-n">6+</div><div class="ws-l">Services available</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-strip">
+  <div class="tag-line" style="justify-content:center">Book Your Visit</div>
+  <h2 class="cta-h">Ready to look<br><em>your best?</em></h2>
+  <p class="cta-sub">Walk in or book ahead — we're open every day until 10 PM</p>
+  <div class="cta-btns">
+    <a href="https://wa.me/923345837773?text=Assalam%20o%20Alaikum%2C%20I%27d%20like%20to%20book%20an%20appointment." class="btn-gold" target="_blank">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Book on WhatsApp
+    </a>
+    <a href="tel:03345837773" class="btn-ghost">Call: 0334 5837773</a>
+  </div>
+</div>
+
+<section class="sec sec-dark" id="reviews">
+  <div class="rev-hdr">
+    <div>
+      <div class="tag-line">Client Reviews</div>
+      <h2 class="sec-h2">What our clients<br><em>say about us.</em></h2>
+    </div>
+    <div class="rev-score">
+      <div class="rs-n">4.8</div>
+      <div class="rs-stars">★★★★★</div>
+      <div class="rs-lbl">32 Google Reviews</div>
+    </div>
+  </div>
+  <div class="rev-grid">
+    <div class="rev-card r"><span class="rev-flag">🇵🇰</span><div class="rev-stars">★★★★★</div><p class="rev-text">"Best saloon in Jhelum. Haircut was exactly what I wanted. Staff are professional, the place is clean and the result was excellent. Will definitely return."</p><div class="rev-author">Local Client</div><div class="rev-from">Civil Lines, Jhelum</div></div>
+    <div class="rev-card r d1"><span class="rev-flag">🇵🇰</span><div class="rev-stars">★★★★★</div><p class="rev-text">"Got my beard styled and hair coloured. The result was amazing. The barber really knows what he's doing — premium experience at a very fair price."</p><div class="rev-author">Satisfied Client</div><div class="rev-from">Naya Mohalla, Jhelum</div></div>
+    <div class="rev-card r d2"><span class="rev-flag">🇵🇰</span><div class="rev-stars">★★★★★</div><p class="rev-text">"Top class grooming service. Clean environment, skilled staff, and they take their time to get it right. Open late so very convenient after work."</p><div class="rev-author">Regular Client</div><div class="rev-from">Jhelum</div></div>
+    <div class="rev-card r"><span class="rev-flag">🇵🇰</span><div class="rev-stars">★★★★★</div><p class="rev-text">"Finally a proper saloon in Jhelum that knows how to do a fade. Very happy with the result. Atmosphere is relaxing and the staff are friendly."</p><div class="rev-author">Verified Client</div><div class="rev-from">Jhelum City</div></div>
+    <div class="rev-card r d1"><span class="rev-flag">🇵🇰</span><div class="rev-stars">★★★★★</div><p class="rev-text">"Went for eyebrow threading and hairstyling. Both done perfectly. The salon is easy to find at Raisham Plaza. Highly recommend to everyone."</p><div class="rev-author">Happy Client</div><div class="rev-from">Civil Lines, Jhelum</div></div>
+    <div class="rev-card r d2"><span class="rev-flag">🇵🇰</span><div class="rev-stars">★★★★★</div><p class="rev-text">"The best thing about this saloon is they actually listen to what you want. No rushing, no shortcuts. Excellent results every single time I visit."</p><div class="rev-author">Loyal Client</div><div class="rev-from">Jhelum</div></div>
+  </div>
+</section>
+
+<section class="sec sec-black" id="contact">
+  <div class="contact-grid">
+    <div>
+      <div class="tag-line">Find Us</div>
+      <h2 class="sec-h2">Visit us in<br><em>Jhelum.</em></h2>
+
+      <div class="cinfo-block r" style="margin-top:36px">
+        <div class="ci-lbl">Address</div>
+        <div class="ci-val" style="display:flex;align-items:center;gap:12px">
+          <span style="font-size:24px">📍</span>
+          <span>Shop 19, Raisham Plaza, Civil Line<br>Naya Mohalla Jhelum, Punjab 49600</span>
+        </div>
+      </div>
+
+      <div class="cinfo-block r">
+        <div class="ci-lbl">Phone & WhatsApp</div>
+        <div class="ci-val" style="display:flex;align-items:center;gap:12px">
+          <span style="font-size:24px">📞</span>
+          <a href="tel:03345837773" style="font-size:20px;font-weight:600;letter-spacing:1px">0334 5837773</a>
+        </div>
+      </div>
+
+      <div class="cinfo-block">
+        <div class="ci-lbl" style="margin-bottom:16px">Opening Hours</div>
+
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:20px">
+          <div style="width:10px;height:10px;border-radius:50%;background:#4ade80;animation:liveDot 1.5s ease-in-out infinite;flex-shrink:0"></div>
+          <span style="font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#4ade80">Open Now</span>
+          <span id="liveClock" style="font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--gold);margin-left:auto;letter-spacing:2px"></span>
+        </div>
+
+        <div class="hours-anim-wrap">
+          <div class="hanim-row r">
+            <div class="hanim-day">
+              <span class="hanim-dot" style="background:#4ade80"></span>
+              Monday – Friday
+            </div>
+            <div class="hanim-right">
+              <div class="hanim-bar"><div class="hanim-fill" style="width:100%;background:linear-gradient(to right,#4ade80,var(--gold))"></div></div>
+              <span class="hanim-time">9 AM – 10 PM</span>
+            </div>
+          </div>
+          <div class="hanim-row r d1">
+            <div class="hanim-day">
+              <span class="hanim-dot" style="background:#4ade80"></span>
+              Saturday
+            </div>
+            <div class="hanim-right">
+              <div class="hanim-bar"><div class="hanim-fill" style="width:100%;background:linear-gradient(to right,#4ade80,var(--gold))"></div></div>
+              <span class="hanim-time">9 AM – 10 PM</span>
+            </div>
+          </div>
+          <div class="hanim-row r d2">
+            <div class="hanim-day">
+              <span class="hanim-dot" style="background:#4ade80"></span>
+              Sunday
+            </div>
+            <div class="hanim-right">
+              <div class="hanim-bar"><div class="hanim-fill" style="width:100%;background:linear-gradient(to right,#4ade80,var(--gold))"></div></div>
+              <span class="hanim-time">9 AM – 10 PM</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:20px;display:inline-flex;align-items:center;gap:10px;background:rgba(74,222,128,0.08);border:1px solid rgba(74,222,128,0.2);padding:10px 18px;border-radius:4px">
+          <span style="font-size:16px">🕙</span>
+          <span style="font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#4ade80">Open Every Day Until 10 PM</span>
+        </div>
+      </div>
+
+      <a href="https://maps.google.com/?q=Raisham+Plaza+Civil+Lines+Naya+Mohalla+Jhelum+Pakistan" target="_blank" class="map-btn">📍 Open in Google Maps →</a>
+    </div>
+
+    <div class="book-panel">
+      <div class="bp-lbl">Book Your Visit</div>
+      <h3 class="bp-h3">Ready for a<br>fresh look?</h3>
+      <p class="bp-sub">Send us a WhatsApp to book your slot. Walk-ins also always welcome — open every day until 10 PM.</p>
+      <a href="https://wa.me/923345837773?text=Assalam%20o%20Alaikum%2C%20I%27d%20like%20to%20book%20an%20appointment%20at%20Al%20Mumaizeen%20Saloon." class="bp-wa" target="_blank">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Book on WhatsApp
+      </a>
+      <div class="bp-div">— or —</div>
+      <a href="tel:03345837773" class="bp-call">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.68A2 2 0 012 .18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+        Call: 0334 5837773
+      </a>
+      <div class="bp-hrs">
+        <strong>Open Every Day</strong><br>
+        Morning until <strong>10:00 PM</strong><br>
+        Walk-ins always welcome
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="ft">
+    <div>
+      <div class="ft-name">Al Mumaizeen</div>
+      <div class="ft-sub">Premium Saloon · Jhelum</div>
+      <p class="ft-desc">Jhelum's premium grooming destination. Expert cuts, beard styling, hair colouring, and more — open every day until 10 PM.</p>
+      <div class="ft-soc">
+        <a href="https://wa.me/923345837773" target="_blank" class="fsoc">💬</a>
+        <a href="tel:03345837773" class="fsoc">📞</a>
+      </div>
+    </div>
+    <div>
+      <div class="ft-col-title">Services</div>
+      <ul class="ft-links">
+        <li><a href="#services">Haircut & Styling</a></li>
+        <li><a href="#services">Beard Grooming</a></li>
+        <li><a href="#services">Hair Colouring</a></li>
+        <li><a href="#services">Hairstyling</a></li>
+        <li><a href="#services">Eyebrow Threading</a></li>
+        <li><a href="#services">Waxing</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="ft-col-title">Contact</div>
+      <ul class="ft-links">
+        <li><a href="tel:03345837773">0334 5837773</a></li>
+        <li><a href="#">Raisham Plaza, Civil Lines</a></li>
+        <li><a href="#">Naya Mohalla, Jhelum</a></li>
+        <li><a href="#">Open Daily · Till 10 PM</a></li>
+        <li><a href="https://wa.me/923345837773" target="_blank">WhatsApp Us</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="ft-bottom">
+    <span>© 2025 Al Mumaizeen Saloon · Jhelum, Pakistan</span>
+    <span>4.8 ★ · 32 Reviews on Google</span>
+  </div>
+</footer>
+
+<a href="https://wa.me/923345837773?text=Assalam%20o%20Alaikum%2C%20I%27d%20like%20to%20book%20an%20appointment." class="wa-f" target="_blank">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<div id="cutTrail"></div>
+<div id="scrollScissors">
+  <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="30" cy="30" r="4" fill="#c9a84c"/>
+    <circle cx="30" cy="30" r="2" fill="#0c0c0c"/>
+    <g id="ss1" style="transform-origin:30px 30px">
+      <circle cx="12" cy="12" r="9" stroke="#c9a84c" stroke-width="2.5" fill="rgba(201,168,76,0.08)"/>
+      <circle cx="12" cy="12" r="4" fill="rgba(201,168,76,0.15)"/>
+      <line x1="19" y1="19" x2="27" y2="27" stroke="#c9a84c" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="30" y1="30" x2="54" y2="14" stroke="#c9a84c" stroke-width="3" stroke-linecap="round"/>
+    </g>
+    <g id="ss2" style="transform-origin:30px 30px">
+      <circle cx="12" cy="48" r="9" stroke="#c9a84c" stroke-width="2.5" fill="rgba(201,168,76,0.08)"/>
+      <circle cx="12" cy="48" r="4" fill="rgba(201,168,76,0.15)"/>
+      <line x1="19" y1="41" x2="27" y2="33" stroke="#c9a84c" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="30" y1="30" x2="54" y2="46" stroke="#c9a84c" stroke-width="3" stroke-linecap="round"/>
+    </g>
+    <circle cx="50" cy="29" r="2" fill="#e8c97a" opacity="0">
+      <animate attributeName="opacity" values="0;1;0" dur="1s" repeatCount="indefinite"/>
+      <animate attributeName="r" values="2;3;2" dur="1s" repeatCount="indefinite"/>
+    </circle>
+  </svg>
+</div>
+<div id="cur">
+  <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="30" cy="30" r="4" fill="#c9a84c"/>
+    <circle cx="30" cy="30" r="2" fill="#0c0c0c"/>
+    <g id="b1" style="transform-origin:30px 30px">
+      <circle cx="12" cy="12" r="9" stroke="#c9a84c" stroke-width="2.5" fill="rgba(201,168,76,0.08)"/>
+      <circle cx="12" cy="12" r="4" fill="rgba(201,168,76,0.15)"/>
+      <line x1="19" y1="19" x2="27" y2="27" stroke="#c9a84c" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="30" y1="30" x2="54" y2="14" stroke="#c9a84c" stroke-width="3" stroke-linecap="round"/>
+      <line x1="32" y1="28" x2="54" y2="14" stroke="rgba(255,255,255,0.12)" stroke-width="1.2" stroke-linecap="round"/>
+    </g>
+    <g id="b2" style="transform-origin:30px 30px">
+      <circle cx="12" cy="48" r="9" stroke="#c9a84c" stroke-width="2.5" fill="rgba(201,168,76,0.08)"/>
+      <circle cx="12" cy="48" r="4" fill="rgba(201,168,76,0.15)"/>
+      <line x1="19" y1="41" x2="27" y2="33" stroke="#c9a84c" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="30" y1="30" x2="54" y2="46" stroke="#c9a84c" stroke-width="3" stroke-linecap="round"/>
+      <line x1="32" y1="32" x2="54" y2="46" stroke="rgba(255,255,255,0.12)" stroke-width="1.2" stroke-linecap="round"/>
+    </g>
+  </svg>
+</div>
+<div id="cur-dot"></div>
+
+<script>
+  function openM(){document.getElementById('mob').classList.add('on');document.body.style.overflow='hidden'}
+  function closeM(){document.getElementById('mob').classList.remove('on');document.body.style.overflow=''}
+  const obs=new IntersectionObserver(e=>{e.forEach(el=>{if(el.isIntersecting)el.target.classList.add('on')})},{threshold:0.08});
+  document.querySelectorAll('.r').forEach(el=>obs.observe(el));
+  window.addEventListener('scroll',()=>{document.querySelector('header').style.borderBottomColor=window.scrollY>20?'rgba(201,168,76,0.3)':'rgba(201,168,76,0.18)'});
+
+  // SCROLL SCISSORS
+  const ss = document.getElementById('scrollScissors');
+  const trail = document.getElementById('cutTrail');
+  const ss1 = document.getElementById('ss1');
+  const ss2 = document.getElementById('ss2');
+  let lastScroll = 0;
+  let ssAngle = 0;
+  let snipInterval;
+
+  function updateScrollScissors(){
+    const scrolled = window.scrollY;
+    const total = document.body.scrollHeight - window.innerHeight;
+    const pct = scrolled / total;
+
+    // Show after scrolling a bit
+    if(scrolled > 200){
+      ss.classList.add('visible');
+    } else {
+      ss.classList.remove('visible');
+    }
+
+    // Position scissors vertically based on scroll %
+    const topPx = pct * (window.innerHeight - 80) + 40;
+    ss.style.top = topPx + 'px';
+    ss.style.transform = 'translateY(0)';
+
+    // Cut trail from top to scissors position
+    trail.style.height = topPx + 'px';
+    trail.style.top = '0px';
+
+    // Snip animation when scrolling
+    const delta = scrolled - lastScroll;
+    if(Math.abs(delta) > 2){
+      ss1.style.transition = 'transform 0.08s ease';
+      ss2.style.transition = 'transform 0.08s ease';
+      ss1.style.transform = 'rotate(-15deg)';
+      ss2.style.transform = 'rotate(15deg)';
+      clearTimeout(snipInterval);
+      snipInterval = setTimeout(() => {
+        ss1.style.transform = '';
+        ss2.style.transform = '';
+      }, 120);
+    }
+    lastScroll = scrolled;
+  }
+
+  window.addEventListener('scroll', updateScrollScissors);
+  updateScrollScissors();
+
+  // LIVE CLOCK
+  function updateClock(){
+    const now = new Date();
+    let h = now.getHours(), m = now.getMinutes(), s = now.getSeconds();
+    const ampm = h >= 12 ? 'PM' : 'AM';
+    h = h % 12 || 12;
+    const el = document.getElementById('liveClock');
+    if(el) el.textContent = `${h}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')} ${ampm}`;
+  }
+  updateClock();
+  setInterval(updateClock, 1000);
+
+  // ANIMATE HOURS BARS ON SCROLL
+  const barsObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if(e.isIntersecting){
+        setTimeout(() => {
+          document.querySelectorAll('.hanim-fill').forEach((bar, i) => {
+            setTimeout(() => bar.classList.add('loaded'), i * 200);
+          });
+        }, 300);
+        barsObs.disconnect();
+      }
+    });
+  }, {threshold: 0.3});
+  const hoursWrap = document.querySelector('.hours-anim-wrap');
+  if(hoursWrap) barsObs.observe(hoursWrap);
+  const cur = document.getElementById('cur');
+  const dot = document.getElementById('cur-dot');
+  const b1 = document.getElementById('b1');
+  const b2 = document.getElementById('b2');
+
+  let mx=0, my=0, cx=0, cy=0;
+  let snipping = false;
+
+  // Smooth follow
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX;
+    my = e.clientY;
+    dot.style.transform = `translate(${mx-2.5}px,${my-2.5}px)`;
+  });
+
+  // Smooth lerp animation
+  function lerp(a,b,n){ return (1-n)*a + n*b; }
+  function animCursor(){
+    cx = lerp(cx, mx, 0.18);
+    cy = lerp(cy, my, 0.18);
+    cur.style.transform = `translate(${cx-12}px,${cy-12}px)`;
+    requestAnimationFrame(animCursor);
+  }
+  animCursor();
+
+  // Snip on click
+  document.addEventListener('mousedown', () => {
+    snipping = true;
+    cur.classList.add('snip');
+    b1.style.transform = 'rotate(-22deg)';
+    b2.style.transform = 'rotate(22deg)';
+  });
+  document.addEventListener('mouseup', () => {
+    snipping = false;
+    cur.classList.remove('snip');
+    b1.style.transform = '';
+    b2.style.transform = '';
+  });
+
+  // Idle snip loop every 4 seconds
+  setInterval(() => {
+    if(snipping) return;
+    b1.style.transition = 'transform 0.15s ease';
+    b2.style.transition = 'transform 0.15s ease';
+    b1.style.transform = 'rotate(-18deg)';
+    b2.style.transform = 'rotate(18deg)';
+    setTimeout(() => {
+      b1.style.transform = '';
+      b2.style.transform = '';
+    }, 220);
+  }, 4000);
+
+  // Hover effect on interactive elements
+  const hoverEls = document.querySelectorAll('a, button, .svc-card, .rev-card, .why-stat');
+  hoverEls.forEach(el => {
+    el.addEventListener('mouseenter', () => cur.classList.add('hover'));
+    el.addEventListener('mouseleave', () => cur.classList.remove('hover'));
+  });
+
+  /* ═════ NEW PREMIUM INJECTED JS ═════ */
+  
+  // 1. Generate Gold Dust Particles in Hero
+  const heroSec = document.querySelector('.hero');
+  if(heroSec) {
+    const particleContainer = document.createElement('div');
+    particleContainer.id = 'particles';
+    heroSec.insertBefore(particleContainer, heroSec.firstChild);
+
+    for(let i = 0; i < 35; i++) {
+      let p = document.createElement('div');
+      p.className = 'dust';
+      let size = Math.random() * 3 + 1;
+      p.style.width = size + 'px';
+      p.style.height = size + 'px';
+      p.style.left = Math.random() * 100 + '%';
+      p.style.animationDuration = (Math.random() * 6 + 4) + 's';
+      p.style.animationDelay = (Math.random() * 5) + 's';
+      p.style.opacity = Math.random() * 0.5 + 0.1;
+      particleContainer.appendChild(p);
+    }
+  }
+
+  // 2. Magnetic Button Hover Effect
+  const magneticBtns = document.querySelectorAll('.btn-gold, .btn-ghost');
+  magneticBtns.forEach(btn => {
+    btn.addEventListener('mousemove', function(e) {
+      const rect = this.getBoundingClientRect();
+      const h = rect.width / 2;
+      const v = rect.height / 2;
+      const x = e.clientX - rect.left - h;
+      const y = e.clientY - rect.top - v;
+      // Pulls the button slightly toward the cursor
+      this.style.transform = `translate(${x * 0.25}px, ${y * 0.25}px) scale(1.03)`;
+    });
+    btn.addEventListener('mouseleave', function() {
+      this.style.transform = 'translate(0px, 0px) scale(1)';
+    });
+  });
+
+  // 3. Smooth Parallax Hero Elements on Scroll
+  window.addEventListener('scroll', () => {
+    const scrolled = window.scrollY;
+    const heroH1 = document.querySelector('.hero-h1');
+    const heroRight = document.querySelector('.hero-right');
+    
+    // Only animate while in the top section to save performance
+    if(scrolled < window.innerHeight) {
+      if(heroH1) heroH1.style.transform = `translateY(${scrolled * 0.15}px)`;
+      if(heroRight) heroRight.style.transform = `translateY(${scrolled * 0.08}px)`;
+    }
+  });
+
+  // 4. Add Shimmer Class to Emphasized Texts
+  document.querySelectorAll('.hero-h1 em, .sec-h2 em, .cta-h em').forEach(el => {
+    el.classList.add('shimmer');
+  });
+
+</script>
+</body>
+</html>
